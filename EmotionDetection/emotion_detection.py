@@ -1,5 +1,6 @@
 import requests
 import json
+import sys
 
 def emotion_detector(text_to_analyze):
 
@@ -44,4 +45,4 @@ def emotion_detector(text_to_analyze):
     
 
 if __name__ == "__main__":
-    print(emotion_detector('I am so happy I am doing this.'))
+    print(emotion_detector(sys.argv[1]))
