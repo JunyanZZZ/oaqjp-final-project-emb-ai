@@ -1,16 +1,21 @@
+"""
+Run text analyzer on localhost 5000
+"""
 from flask import Flask, request, render_template
-from EmotionDetection.emotion_detection import emotion_detector
+from EmotionDetection import emotion_detection
 app = Flask(__name__)
 
 @app.route('/emotionDetector')
-def emotionDetector():
-
+def emotion_detector():
+    """
+    Analyze the given text from the input
+    """
     text = request.args.get('textToAnalyze')
-    response = emotion_detector(text)
+    response = emotion_detection.emotion_detector(text)
     dominant_emo = response.get('dominant_emotion')
     if dominant_emo is None:
         return 'Invalid text! Please try again!'
-    
+
     return (f"For the given statement, the system response is "
            f"'anger': {response['anger']}, "
            f"'disgust': {response['disgust']}, "
@@ -22,6 +27,9 @@ def emotionDetector():
 
 @app.route('/')
 def render():
+    """
+    Render home page
+    """
     return render_template('index.html')
 
 if __name__ == '__main__':
