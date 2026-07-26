@@ -9,7 +9,7 @@ def emotionDetector():
     response = emotion_detector(text)
     dominant_emo = response.get('dominant_emotion')
     if dominant_emo is None:
-        return 'Invalid text! Try again!'
+        return 'Invalid text! Please try again!'
     
     return (f"For the given statement, the system response is "
            f"'anger': {response['anger']}, "
