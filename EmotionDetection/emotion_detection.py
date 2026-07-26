@@ -14,12 +14,6 @@ def emotion_detector(text_to_analyze):
         url, json=input_json, headers=headers
     )
 
-    #task2
-    # if response.status_code < 300:
-    #     return response.text
-    # else:
-    #     return ''
-
     #task3
     formatted_content = json.loads(response.text)
     if response.status_code < 300:
